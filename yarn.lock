@@ -745,6 +745,14 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@callstack/react-theme-provider@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@callstack/react-theme-provider/-/react-theme-provider-3.0.6.tgz#7dac483037e27e28676bdf1431ba87b88f21118f"
+  integrity sha512-wwKMXfmklfogpalNZT0W+jh76BIquiYUiQHOaPmt/PCyCEP/E6rP+e7Uie6mBZrfkea9WJYJ+mus6r+45JAEhg==
+  dependencies:
+    deepmerge "^3.2.0"
+    hoist-non-react-statics "^3.3.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -6017,6 +6025,11 @@ react-native-gesture-handler@^1.10.3:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-iphone-x-helper@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
+  integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
+
 react-native-linear-gradient@^2.5.6:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
@@ -6037,15 +6050,14 @@ react-native-material-buttons@^0.5.0:
     prop-types "^15.5.9"
     react-native-material-ripple "^0.7.0"
 
-react-native-material-dropdown@^0.11.1:
+react-native-material-dropdown-v2@^0.11.1:
   version "0.11.1"
-  resolved "https://registry.yarnpkg.com/react-native-material-dropdown/-/react-native-material-dropdown-0.11.1.tgz#c0fe434a8e617941ef910ba44d2f07c8f37584fe"
-  integrity sha1-wP5DSo5heUHvkQukTS8HyPN1hP4=
+  resolved "https://registry.yarnpkg.com/react-native-material-dropdown-v2/-/react-native-material-dropdown-v2-0.11.1.tgz#f77a9d83db9f9ba3b6114bdc8b28840a9ca5d279"
+  integrity sha512-fLom8DJ7tkB1wZsjkU3lPBcDdNRcLBZTKoRojolMOnD3AHfS+POkORh2g6VToMfhnz4rHBeLGzScu7VGsf8jow==
   dependencies:
     prop-types "^15.5.9"
     react-native-material-buttons "^0.5.0"
     react-native-material-ripple "^0.8.0"
-    react-native-material-textfield "^0.12.0"
 
 react-native-material-ripple@^0.7.0:
   version "0.7.5"
@@ -6061,12 +6073,14 @@ react-native-material-ripple@^0.8.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-material-textfield@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/react-native-material-textfield/-/react-native-material-textfield-0.12.0.tgz#3fba19d76ab89f67052c81e082152fc243d82a3f"
-  integrity sha1-P7oZ12q4n2cFLIHgghUvwkPYKj8=
+react-native-paper@^4.9.2:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-4.9.2.tgz#6ecdd81acf2cf4d6d5f0247d4c1812dea93eade0"
+  integrity sha512-J7FRsd0YblQawtuj9I46F//apZHadsCKk6jWpc6njFTYdgUeCdkR8KgEto7cp2WxbcGNELx7KGwPQ4zAgX746A==
   dependencies:
-    prop-types "^15.5.9"
+    "@callstack/react-theme-provider" "^3.0.6"
+    color "^3.1.2"
+    react-native-iphone-x-helper "^1.3.1"
 
 react-native-push-notification@^8.1.0:
   version "8.1.0"

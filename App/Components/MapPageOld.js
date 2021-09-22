@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
 import MapView from 'react-native-maps';
 import SvgElement from './SvgElement';
 import { ForkIcon } from '../SVG/SvgIcons';
 import { variables } from '../Styles/Variables';
 import Footer from './Footer';
-import SampleData from '../Data/Data';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,10 +69,10 @@ class MapPage extends Component {
 
     this.state = {
       initalPosition: {
-        latitude: 32.759143,
-        longitude: -117.146394,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA,
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0,
+        longitudeDelta: 0,
         locationWorking: false,
       },
       markerPosition: {
@@ -159,8 +164,8 @@ class MapPage extends Component {
   // }
 
   render() {
-    if (SampleData) {
-      var mess_hall_markers = SampleData.map((item, index) => {
+    if (this.props.restData) {
+      var mess_hall_markers = this.props.restData.map((item, index) => {
         if (item.coordinates.latitude && item.coordinates.longitude) {
           return (
             <MapView.Marker
@@ -179,26 +184,6 @@ class MapPage extends Component {
     } else {
       var mess_hall_markers = <View />;
     }
-    // if (this.props.restData) {
-    //   var mess_hall_markers = this.props.restData.map((item, index) => {
-    //     if (item.coordinates.latitude && item.coordinates.longitude) {
-    //       return (
-    //         <MapView.Marker
-    //           key={index}
-    //           coordinate={{
-    //             latitude: parseFloat(item.coordinates.latitude),
-    //             longitude: parseFloat(item.coordinates.longitude),
-    //           }}
-    //           title={item.name}
-    //           description={item.address}>
-    //           <SvgElement svg_data={ForkIcon} />
-    //         </MapView.Marker>
-    //       );
-    //     }
-    //   });
-    // } else {
-    //   var mess_hall_markers = <View />;
-    // }
 
     if (this.state.locationWorking) {
       var user_location_marker = (
@@ -213,7 +198,6 @@ class MapPage extends Component {
     }
 
     if (this.state.initalPosition.latitude > 0) {
-      console.log('yes....');
       var FinalMapArea = (
         <View style={styles.container}>
           <MapView style={styles.map} initialRegion={this.state.initalPosition}>
@@ -223,7 +207,6 @@ class MapPage extends Component {
         </View>
       );
     } else {
-      console.log('nooooooo');
       var FinalMapArea = (
         <View style={styles.container}>
           <View style={styles.indicatorWrap}>
@@ -246,6 +229,6 @@ class MapPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({ restData: state.restData });
+mapStateToProps = state => ({ restData: state.restData });
 
 module.exports = connect(mapStateToProps)(MapPage);

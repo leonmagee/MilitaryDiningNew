@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
 
-import {View, Text, Animated, StyleSheet} from 'react-native'
+import { View, Text, Animated, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   menuDetailWrap: {
@@ -30,62 +30,74 @@ const styles = StyleSheet.create({
     color: '#333',
     fontWeight: 'bold',
     minWidth: 150,
-  }
-})
+  },
+});
 
 class MenuDetails extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
     if (this.props.cal) {
-      var calories = <View style={styles.menuDetailsItemWrap}>
+      var calories = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Calories</Text>
           <Text style={styles.menuDetailsItem}>{this.props.cal}</Text>
         </View>
+      );
     } else {
-      var portionSize = <View></View>
+      var portionSize = <View />;
     }
     if (this.props.portion) {
-      var portionSize = <View style={styles.menuDetailsItemWrap}>
+      var portionSize = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Portion Size</Text>
           <Text style={styles.menuDetailsItem}>{this.props.portion}</Text>
         </View>
+      );
     } else {
-      var portionSize = <View></View>
+      var portionSize = <View />;
     }
     if (this.props.fat) {
-      var fat = <View style={styles.menuDetailsItemWrap}>
+      var fat = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Fat</Text>
           <Text style={styles.menuDetailsItem}>{this.props.fat}</Text>
         </View>
+      );
     } else {
-      var fat = <View></View>
+      var fat = <View />;
     }
     if (this.props.pro) {
-      var protein = <View style={styles.menuDetailsItemWrap}>
+      var protein = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Protein</Text>
           <Text style={styles.menuDetailsItem}>{this.props.pro}</Text>
         </View>
+      );
     } else {
-      var protein = <View></View>
+      var protein = <View />;
     }
     if (this.props.carb) {
-      var carbs = <View style={styles.menuDetailsItemWrap}>
+      var carbs = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Carbs</Text>
           <Text style={styles.menuDetailsItem}>{this.props.carb}</Text>
         </View>
+      );
     } else {
-      var carbs = <View></View>
+      var carbs = <View />;
     }
     if (this.props.reference) {
-      var ref = <View style={styles.menuDetailsItemWrap}>
+      var ref = (
+        <View style={styles.menuDetailsItemWrap}>
           <Text style={styles.menuDetailsItemLabel}>Recipe Reference</Text>
           <Text style={styles.menuDetailsItem}>{this.props.reference}</Text>
         </View>
+      );
     } else {
-      var ref = <View></View>
+      var ref = <View />;
     }
 
     return (
@@ -97,8 +109,8 @@ class MenuDetails extends Component {
         {carbs}
         {ref}
       </Animated.View>
-    )
+    );
   }
 }
 
-module.exports = MenuDetails
+module.exports = MenuDetails;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, TouchableHighlight, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingHorizontal: 15,
-    //backgroundColor: 'green',
-    //flex: 1,
   },
   footerText: {
     color: '#FFF',
@@ -28,7 +26,7 @@ export default class Footer extends Component {
   }
 
   goToMessHalls() {
-    this.props.navigation.navigate('MessHalls');
+    this.props.navigation.navigate('Mess Hall List');
   }
 
   goToSettings() {

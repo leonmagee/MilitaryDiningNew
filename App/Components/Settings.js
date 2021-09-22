@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Dropdown } from 'react-native-material-dropdown';
+import { Dropdown } from 'react-native-material-dropdown-v2';
 import { CalorieCounter } from '../Math/Calculator';
 import { variables } from '../Styles/Variables';
 import { defaults } from '../Styles/Defaults';
@@ -13,7 +13,6 @@ import {
   TextInput,
   StyleSheet,
   TouchableHighlight,
-  //AsyncStorage,
   Animated,
 } from 'react-native';
 
@@ -83,11 +82,16 @@ const styles = StyleSheet.create({
   textInput: {
     borderBottomWidth: 0.5,
     fontSize: 16,
-    borderBottomColor: 'rgba(0, 0, 0, .38)',
-    paddingVertical: 7,
+    //borderBottomColor: 'rgba(0, 0, 0, .38)',
+    //borderBottomColor: '#B5B5B5',
+    borderBottomColor: '#999',
+    paddingTop: 21.5,
+    paddingBottom: 7,
   },
   dropdownInput: {
     fontSize: 16,
+    //borderColor: 'red',
+    backgroundColor: 'transparent',
   },
   updateButton: {
     backgroundColor: variables.brandPrimary,
@@ -141,11 +145,6 @@ class Settings extends Component {
       updatedOpacity: new Animated.Value(0),
     };
 
-    console.log('PROPZ');
-    console.log(props);
-
-    //AsyncStorage.clear()
-
     this.getUserName();
     this.getUserRank();
     this.getUserWeight();
@@ -176,11 +175,13 @@ class Settings extends Component {
     Animated.timing(this.state.updatedOpacity, {
       toValue: 1,
       duration: 500, // use timing for animation
+      useNativeDriver: false,
     }).start(() => {
       setTimeout(() => {
         Animated.timing(this.state.updatedOpacity, {
           toValue: 0,
           duration: 500, // use timing for animation
+          useNativeDriver: false,
         }).start();
       }, 1300);
     });
@@ -212,8 +213,6 @@ class Settings extends Component {
       this.props.setDailyCalories(dailyCalories);
       const dailyCaloriesString = dailyCalories.toString();
       this.saveDailyCalories(dailyCaloriesString);
-      //console.log('new calz tester')
-      //console.log(dailyCalories)
     }
   }
 
@@ -319,21 +318,6 @@ class Settings extends Component {
   }
 
   render() {
-    // var dailyCalories = '. . .'
-    // if (this.state.weight && this.state.height_feet && this.state.height_inches && this.state.gender && this.state.age && this.state.activity) {
-
-    //   const currentAge = parseInt(this.state.age)
-    //   const currentHeightFeet = parseInt(this.state.height_feet)
-    //   const currentHeightInches = parseInt(this.state.height_inches)
-    //   const currentWeight = parseInt(this.state.weight)
-    //   const currentGender = this.state.gender
-    //   const currentActivity = this.state.activity
-
-    //   var dailyCalories = CalorieCounter(currentAge, currentHeightFeet, currentHeightInches, currentWeight, currentGender, currentActivity)
-    // }
-
-    //dailyCalories
-
     let height_feet = [
       {
         value: '1',
@@ -449,30 +433,6 @@ class Settings extends Component {
         label: 'Extra Active',
       },
     ];
-
-    // this should be globally accessible? we need to access rank on other parts of the site?
-    // let rank = [
-    //   {
-    //     value: '1',
-    //     label: 'N/A'
-    //   },
-    //   {
-    //     value: '2',
-    //     label: 'Private'
-    //   },
-    //   {
-    //     value: '3',
-    //     label: 'Corporal'
-    //   },
-    //   {
-    //     value: '4',
-    //     label: 'Major'
-    //   },
-    //   {
-    //     value: '5',
-    //     label: 'Captain'
-    //   },
-    // ]
 
     if (this.state.updated === true) {
       var settingsUpdated = (
@@ -630,18 +590,15 @@ class Settings extends Component {
   }
 }
 
-//module.exports = Settings
-
-mapActionsToProps = dispatch => ({
+const mapActionsToProps = dispatch => ({
   setDailyCalories(results) {
     dispatch({ type: 'SET_DAILY_CALORIES', payload: results });
   },
   setCurrentRank(results) {
-    // not sure if this is necesary
     dispatch({ type: 'SET_CURRENT_RANK', payload: results });
   },
 });
 
-mapStateToProps = state => ({ dailyCalories: state.dailyCalories });
+const mapStateToProps = state => ({ dailyCalories: state.dailyCalories });
 
 module.exports = connect(mapStateToProps, mapActionsToProps)(Settings);

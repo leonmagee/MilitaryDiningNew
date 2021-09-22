@@ -45,13 +45,22 @@ class HealthVideos extends Component {
   }
 
   componentDidMount() {
-    api
-      .getHealthVideos()
-      .then(response => {
-        console.log('HEALTH', response);
-        this.setState({ videos: response });
-      })
-      .done();
+    // api
+    //   .getHealthVideos()
+    //   .then(response => {
+    //     console.log('HEALTH', response);
+    //     this.setState({ videos: response });
+    //   })
+    //   .done();
+    this.setState({
+      videos: [
+        { video_title: 'Healthy Diet', youtube_video_id: 'fqhYBTg73fw' },
+        {
+          video_title: 'Good Health Without Dieting',
+          youtube_video_id: '3__CcskNkDs',
+        },
+      ],
+    });
   }
 
   render() {
@@ -60,6 +69,7 @@ class HealthVideos extends Component {
         <Text style={styles.titleBlock}>{item.video_title}</Text>
         <YouTube
           videoId={item.youtube_video_id} // The YouTube video ID
+          //videoId="KVZ-P-ZI6W4"
           play={false} // control playback of video with true/false
           fullscreen // control whether the video should play in fullscreen or inline
           loop={false} // control whether the video should loop when ended

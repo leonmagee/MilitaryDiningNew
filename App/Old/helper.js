@@ -1,16 +1,15 @@
-console.log('this is being loaded?????')
+console.log('this is being loaded?????');
 
-import React from 'react'
-import {
-    Dimensions,
-    AsyncStorage
-} from 'react-native'
+import React from 'react';
+import { Dimensions } from 'react-native';
 
-let {width, height} = Dimensions.get('window')
+import AsyncStorage from '@react-native-community/async-storage';
+
+let { width, height } = Dimensions.get('window');
 
 const units = {
-    vw: width/100,
-    vh: height/100
-}
+  vw: width / 100,
+  vh: height / 100,
+};
 
-export const {vw, vh} = units
+export const { vw, vh } = units;
