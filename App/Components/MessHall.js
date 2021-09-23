@@ -100,8 +100,6 @@ class MessHall extends Component {
   }
 
   onStarRatingPress(rating) {
-    console.log('SOMEHOW THIS IS HAPPENING ALREADY?');
-
     this.saveRating(rating);
 
     uniqueId((error, id) => {
@@ -109,9 +107,9 @@ class MessHall extends Component {
         return console.error(error);
       }
 
-      api.updateStarRating(id, this.props.data.id, rating).then(res => {
-        console.log(res);
-      });
+      // api.updateStarRating(id, this.props.data.id, rating).then(res => {
+      //   console.log(res);
+      // });
 
       // console.log('rating info')
       // console.log(rating)

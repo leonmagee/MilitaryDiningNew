@@ -36,7 +36,8 @@ const SampleData = [
     menus: [
       {
         day: '1',
-        date: '11/4/2017',
+        //date: '11/4/2017',
+        date: '11/4/2020',
         breakfast: [
           {
             id: 1,
@@ -156,6 +157,7 @@ const SampleData = [
       },
       {
         day: '2',
+        date: '8/7/2021',
         breakfast: [
           {
             id: 13,
@@ -285,6 +287,7 @@ const SampleData = [
     menus: [
       {
         day: '1',
+        date: '8/11/2021',
         breakfast: [
           {
             name: 'MINESTRONE SOUP',
@@ -392,6 +395,7 @@ const SampleData = [
       },
       {
         day: '2',
+        date: '8/13/2021',
         breakfast: [
           {
             name: 'ASSORTED DRY CEREAL',

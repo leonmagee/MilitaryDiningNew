@@ -14,8 +14,6 @@ import {
 } from 'react-native';
 import Footer from './Footer';
 
-console.log(SampleData);
-
 const styles = StyleSheet.create({
   mainWrapOuter: {
     display: 'flex',

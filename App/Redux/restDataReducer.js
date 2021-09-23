@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import {SET_DATA_VALUE} from './actions'
+import { SET_DATA_VALUE } from './actions';
 
 /**
  * restDataReducer
@@ -10,8 +10,7 @@ export const restDataReducer = (state = null, action) => {
   switch (action.type) {
     case SET_DATA_VALUE:
       return action.payload;
-      break;
     default:
       return state;
   }
-}
+};

@@ -129,8 +129,6 @@ class MenuPage extends Component {
     //AsyncStorage.clear()
 
     const menuz = this.props.currentMenu;
-    console.log('menuz');
-    console.log(menuz);
 
     menuz.menus.map((menu, key) => {
       if (menu.breakfast) {
@@ -262,8 +260,11 @@ class MenuPage extends Component {
   toggleMenu(key, item) {
     const newMenuToggle = this.state.menuToggle;
     if (newMenuToggle[key][item].icon === '+') {
+      //console.log('xxxyyyzzz');
       newMenuToggle[key][item].icon = '-';
       newMenuToggle[key][item].visible = true;
+      //console.log(newMenuToggle[key][item].visible);
+
       this.setState({ menuToggle: newMenuToggle });
       this.setState(() => {
         Animated.timing(this.state.menuToggle[key][item].opacity, {
@@ -340,7 +341,7 @@ class MenuPage extends Component {
   }
 
   dailyMealRedux(data) {
-    console.log(data);
+    //console.log(data);
     this.props.setCurrentMeals(data);
   }
 
@@ -349,10 +350,7 @@ class MenuPage extends Component {
 
     const menu_days = menuz.menus.map((menu, key) => {
       if (menu.breakfast) {
-        console.log('we are here now????');
         var breakfast = menu.breakfast.map((item, item_key) => {
-          console.log('my item');
-          console.log(item);
           if (item.id) {
             if (
               this.state.menuToggle[key].breakfast.details[item_key].visible

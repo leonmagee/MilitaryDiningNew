@@ -213,7 +213,6 @@ class MapPage extends Component {
     }
 
     if (this.state.initalPosition.latitude > 0) {
-      console.log('yes....');
       var FinalMapArea = (
         <View style={styles.container}>
           <MapView style={styles.map} initialRegion={this.state.initalPosition}>
@@ -223,7 +222,6 @@ class MapPage extends Component {
         </View>
       );
     } else {
-      console.log('nooooooo');
       var FinalMapArea = (
         <View style={styles.container}>
           <View style={styles.indicatorWrap}>

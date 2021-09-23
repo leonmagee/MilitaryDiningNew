@@ -1,6 +1,6 @@
-import {createStore, applyMiddleware} from 'redux'
-import {reducer} from './reducers'
+import { createStore, applyMiddleware } from 'redux';
+import { reducer } from './reducers';
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 
-module.exports = store
+module.exports = store;
